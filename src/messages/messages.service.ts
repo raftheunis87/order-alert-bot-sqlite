@@ -9,48 +9,14 @@ export class MessagesService {
   constructor(private readonly telegramService: TelegramService) {}
 
   createPositionMessage(position: Position): Promise<void> {
-    return this.telegramService.send(
-      `New Position\nMarket: ${position.market}\nPosition Size: ${
-        position.positionSize
-      } ${position.market.replace('-PERP', '')}\nNotional Size: US$${
-        position.notionalSize
-      }\nAverage Open Price: ${this.roundTo(
-        position.avgOpenPrice,
-        7,
-      )}\nCycle Buys: ${position.cycleBuys}`,
-    );
+    return this.telegramService.sendCreatePositionMessage(position);
   }
 
   updatePositionMessage(position: Position): Promise<void> {
-    return this.telegramService.send(
-      `Update Position\nMarket: ${position.market}\nPosition Size: ${
-        position.positionSize
-      } ${position.market.replace('-PERP', '')}\nNotional Size: US$${
-        position.notionalSize
-      }\nAverage Open Price: ${this.roundTo(
-        position.avgOpenPrice,
-        7,
-      )}\nCycle Buys: ${position.cycleBuys}`,
-    );
+    return this.telegramService.sendUpdatePositionMessage(position);
   }
 
   closePositionMessage(position: Position): Promise<void> {
-    return this.telegramService.send(
-      `Close Position\nMarket: ${position.market}\nPosition Size: ${
-        position.positionSize
-      } ${position.market.replace('-PERP', '')}\nNotional Size: US$${
-        position.notionalSize
-      }\nAverage Open Price: ${this.roundTo(
-        position.avgOpenPrice,
-        7,
-      )}\nCycle Buys: ${position.cycleBuys}\nProfit: ${
-        position.profit < 0 ? '-' : ''
-      }US$${Math.abs(position.profit)}`,
-    );
-  }
-
-  private roundTo(number: number, decimalPlaces: number): number {
-    const factor = 10 ** decimalPlaces;
-    return Math.round(number * factor) / factor;
+    return this.telegramService.sendClosePositionMessage(position);
   }
 }
