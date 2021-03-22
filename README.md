@@ -1,73 +1,37 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="#about">About</a>
+  •
+  <a href="#installation">Installation</a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## About
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The **Order Alert Bot SQLite** listens to [FTX](https://ftx.com) orders via [websockets](https://docs.ftx.com/#websocket-api) using [NestJS](https://nestjs.com/).
+For each order you will receive a notification in [Telegram](https://telegram.org/) and the orders will be saved in a SQLite database.
 
 ## Installation
 
-```bash
-$ npm install
-```
+> ⚠️ Best to run the bot on a VPS. I can recommend [Hetzner](https://www.hetzner.com/cloud).
 
-## Running the app
+1. Install [NodeJS](https://nodejs.org/en/download/)
+1. Clone this repository `git clone https://github.com/raftheunis87/order-alert-bot-sqlite`
+1. Install all requirements `npm install`
+1. Rename `.env.example` to `.env` and replace the <> placeholders with the correct values:
+   - `APP_PORT` is the port on which you want the application to run
+   - `TELEGRAM_BOT_TOKEN` is the token you receive after creating a bot with the BotFather
+   - `TELEGRAM_CHAT_ID` is the id of the telegram group or channel in which the bot will give the order alerts
+   - `FTX_ACCOUNT` is an object in which you can configure your FTX subaccount. The following keys need to be present:
+     - key: the apiKey from FTX (You can/should use a read-only api key)
+     - secret: the secret from FTX (You can/should use a read-only api key)
+     - subaccount: the name of the subaccount
+1. Run the bot `npm run build && npm run start:prod`
 
-```bash
-# development
-$ npm run start
+## How can I help?
 
-# watch mode
-$ npm run start:dev
+All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/raftheunis87/order-alert-bot/issues/new). You can also buy me some [☕️ coffee](https://www.buymeacoffee.com/rt87) to help keep me productive! You can also sent me some crypto to the following addresses:
 
-# production mode
-$ npm run start:prod
-```
+- BTC: 3P4eit3YxdokJZNNEF9s6VosG9zAxhj4pS
+- ETH: 0xa3Fe3CDa5cD73022F1935b342dc57FD8C6C34F56
+- USDT (TRC20): THV4oP8LAt7cijNjzccfbFu8KxqdqWS8Ns
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Thanks again for your support, it is much appreciated! 🙏
