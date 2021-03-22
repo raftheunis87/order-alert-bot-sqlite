@@ -11,7 +11,7 @@ For each order you will receive a notification in [Telegram](https://telegram.or
 
 ## Installation
 
-> ⚠️ Best to run the bot on a VPS. I can recommend [Hetzner](https://www.hetzner.com/cloud).
+> ⚠️ Best to run the bot on a VPS. I can recommend [Hetzner](https://hetzner.cloud/?ref=lDD7z7LALHNr).
 
 1. Install [NodeJS](https://nodejs.org/en/download/)
 1. Clone this repository `git clone https://github.com/raftheunis87/order-alert-bot-sqlite`
