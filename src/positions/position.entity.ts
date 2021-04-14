@@ -25,6 +25,9 @@ export class Position extends BaseEntity {
   @Column({ nullable: false })
   avgOpenPrice: number;
 
+  @Column({ nullable: true })
+  avgClosePrice: number;
+
   @Column({ nullable: false, default: 1 })
   cycleBuys: number;
 
