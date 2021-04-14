@@ -159,13 +159,13 @@ export class FtxService {
 
   async closePosition(
     position: Position,
-    avgFillPrice: number,
+    avgClosePrice: number,
   ): Promise<Position> {
     this.logger.verbose(`Closing the position for market '${position.market}'`);
 
     const closedPosition: Position = await this.positionsService.closePosition(
       position,
-      avgFillPrice,
+      avgClosePrice,
     );
 
     this.messagesService.closePositionMessage(position);

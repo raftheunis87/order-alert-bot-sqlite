@@ -58,13 +58,14 @@ export class PositionsService {
 
   async closePosition(
     position: Position,
-    avgFillPrice: number,
+    avgClosePrice: number,
   ): Promise<Position> {
     const profit = this.roundTo(
-      position.positionSize * (avgFillPrice - position.avgOpenPrice),
+      position.positionSize * (avgClosePrice - position.avgOpenPrice),
       2,
     );
 
+    position.avgClosePrice = avgClosePrice;
     position.profit = profit;
     position.isActive = false;
 

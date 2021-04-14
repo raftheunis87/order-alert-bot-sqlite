@@ -57,6 +57,9 @@ export class TelegramService {
     }\nAverage Open Price: ${this.roundTo(
       position.avgOpenPrice,
       7,
+    )}\nAverage Close Price: ${this.roundTo(
+      position.avgClosePrice,
+      7,
     )}\nCycle Buys: ${position.cycleBuys}\nProfit: ${
       position.profit < 0 ? '-' : ''
     }US$${Math.abs(position.profit)}`;
